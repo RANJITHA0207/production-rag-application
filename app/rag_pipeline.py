@@ -75,12 +75,12 @@ class RAGPipeline:
             top_k=top_k
         )
 
-        # Build context
+        # Build context with citation labels
         context_parts = []
 
-        for result in results:
+        for index, result in enumerate(results, start=1):
             context_parts.append(
-                f"Source: {result['source']}\n"
+                f"[Source {index}] {result['source']}\n"
                 f"{result['text']}"
             )
 

@@ -1,7 +1,7 @@
 from pathlib import Path
 from pypdf import PdfReader
 
-from app.config import CHUNK_SIZE, CHUNK_OVERLAP
+from app.config import CHUNK_SIZE
 
 
 def load_pdf(file_path: str) -> str:
@@ -50,18 +50,30 @@ def load_documents(folder_path: str = "data/documents"):
 
 
 def chunk_text(text: str):
-    """Split text into overlapping chunks."""
-    chunks = []
+    """Split text into meaningful section-based chunks."""
 
-    start = 0
+    sections = []
+    current_section = []
 
-    while start < len(text):
-        end = start + CHUNK_SIZE
-        chunk = text[start:end].strip()
+    for line in text.splitlines():
 
-        if chunk:
-            chunks.append(chunk)
+        line = line.strip()
 
-        start += CHUNK_SIZE - CHUNK_OVERLAP
+        if not line:
+            continue
 
-    return chunks
+        if (
+            len(line) < 40
+            and not line.endswith(".")
+            and current_section
+        ):
+            sections.append("\n".join(current_section))
+            current_section = [line]
+
+        else:
+            current_section.append(line)
+
+    if current_section:
+        sections.append("\n".join(current_section))
+
+    return sections

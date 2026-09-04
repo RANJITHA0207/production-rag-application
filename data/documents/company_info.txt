@@ -1,0 +1,31 @@
+TECHFLOW SOLUTIONS
+
+Company Overview
+
+TechFlow Solutions is a fictional software company that builds cloud-based business applications.
+
+Products
+
+TechFlow CRM helps sales teams manage customers, leads, and business opportunities.
+
+TechFlow Analytics provides dashboards and reports for analyzing business performance.
+
+Technology
+
+The company uses Python, Java, React, PostgreSQL, Docker, and AWS.
+
+Working Hours
+
+The standard working hours are Monday to Friday, from 9:00 AM to 6:00 PM.
+
+Support
+
+Customers can contact the support team through email or the company's support portal.
+
+Security
+
+Customer data is encrypted during transmission and storage. Access to production systems is restricted to authorized employees.
+
+Contact
+
+General support email: support@techflow.example
